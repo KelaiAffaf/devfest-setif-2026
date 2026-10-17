@@ -10,7 +10,13 @@ const nextConfig = {
   images: { unoptimized: true },
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
-    NEXT_PUBLIC_SITE_ORIGIN: process.env.SITE_ORIGIN || 'http://localhost:3000',
+    // Public site URL for social previews: explicit SITE_ORIGIN (GitHub Pages),
+    // else the production domain Vercel exposes at build time.
+    NEXT_PUBLIC_SITE_ORIGIN:
+      process.env.SITE_ORIGIN ||
+      (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : 'http://localhost:3000'),
   },
 };
 
