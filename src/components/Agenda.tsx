@@ -11,7 +11,7 @@ import { Section, SectionHeader, Glyph } from './ui';
 
 function Timeline({ items, accent }: { items: AgendaItem[]; accent: string }) {
   return (
-    <Box component="ol" sx={{ listStyle: 'none', p: 0, m: 0, display: 'grid', gap: 1.25 }}>
+    <Box className="df-stagger" component="ol" sx={{ listStyle: 'none', p: 0, m: 0, display: 'grid', gap: 1.25 }}>
       {items.map((it, i) => (
         <Box
           component="li"

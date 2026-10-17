@@ -31,6 +31,14 @@ export const links = {
   codeOfConduct: 'https://developers.google.com/community/gdg/code-of-conduct',
 };
 
+// Registration form: each submission is emailed to the organizer through FormSubmit (https://formsubmit.co).
+// After activating the form from the first email, replace the address in `endpoint` with the random
+// alias FormSubmit gives you, so the email address no longer appears in the page source.
+export const registrationForm = {
+  endpoint: 'https://formsubmit.co/ajax/afafkelly@gmail.com',
+  subject: 'New DevFest Setif 2026 registration',
+};
+
 export type AgendaItem = {
   time: string;
   title: string;

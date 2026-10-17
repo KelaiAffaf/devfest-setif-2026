@@ -66,7 +66,7 @@ export default function Header() {
             ))}
           </Box>
           <Button
-            href="#register"
+            href="#registration-form"
             variant="contained"
             color="secondary"
             sx={{ display: { xs: 'none', sm: 'inline-flex' } }}
@@ -94,7 +94,7 @@ export default function Header() {
           </IconButton>
         </Box>
         <List>
-          {[...nav, { label: 'Register', href: '#register' }].map((n) => (
+          {[...nav, { label: 'Register', href: '#registration-form' }].map((n) => (
             <ListItemButton key={n.href} component="a" href={n.href} onClick={() => setOpen(false)}>
               <ListItemText primary={n.label} slotProps={{ primary: { sx: { fontSize: '1.2rem', fontWeight: 500 } } }} />
             </ListItemButton>

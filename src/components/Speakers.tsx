@@ -26,10 +26,11 @@ export default function Speakers() {
         intro="1 keynote, 4 talks and a panel in the main hall. 4 hands-on workshops in the afternoon across 2 rooms. Speakers get announced from November 4."
       />
 
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' }, gap: 2 }}>
+      <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' }, gap: 2 }}>
         {sessions.map((s) => (
           <Box
             key={s.slot}
+              className="df-lift"
             sx={{
               border: `2px solid ${brand.black}`,
               borderRadius: 6,
@@ -93,7 +94,7 @@ export default function Speakers() {
       <Typography variant="h4" sx={{ mt: { xs: 8, md: 10 }, mb: 3, fontSize: { xs: '1.6rem', md: '2rem' } }}>
         Two afternoon workshop tracks
       </Typography>
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 2 }}>
+      <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 2 }}>
         {workshopTracks.map((w) => (
           <Box key={w.name} sx={{ border: `2px solid ${brand.black}`, borderRadius: 6, overflow: 'hidden', bgcolor: brand.white }}>
             <Box sx={{ bgcolor: accentPastel[w.accent], p: 3, borderBottom: `2px solid ${brand.black}` }}>

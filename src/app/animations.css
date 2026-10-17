@@ -1,0 +1,101 @@
+/* DevFest Setif 2026 motion layer.
+   Everything is gated behind `.js` (set by an inline script in <head>) so the
+   page stays fully visible without JavaScript, and behind
+   prefers-reduced-motion so people who opt out get a still page. */
+
+@keyframes df-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes df-pop {
+  0% { opacity: 0; transform: scale(0.6) rotate(-6deg); }
+  70% { opacity: 1; transform: scale(1.06) rotate(1deg); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes df-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(6deg); }
+}
+
+@keyframes df-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes df-drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(14px); }
+}
+
+@keyframes df-tick {
+  0% { transform: translateY(-30%); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+@keyframes df-shimmer {
+  0%, 100% { transform: translateY(0) rotate(0); box-shadow: 8px 8px 0 #1e1e1e; }
+  50% { transform: translateY(-6px) rotate(-0.6deg); box-shadow: 12px 14px 0 #1e1e1e; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero entrance, staggered */
+  .js .df-enter { opacity: 0; animation: df-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+  .js .df-enter-pop { opacity: 0; animation: df-pop 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+  .df-d1 { animation-delay: 0.05s !important; }
+  .df-d2 { animation-delay: 0.18s !important; }
+  .df-d3 { animation-delay: 0.31s !important; }
+  .df-d4 { animation-delay: 0.44s !important; }
+  .df-d5 { animation-delay: 0.57s !important; }
+  .df-d6 { animation-delay: 0.7s !important; }
+
+  /* Ambient glyph motion */
+  .df-float { animation: df-float 6s ease-in-out infinite; }
+  .df-spin { animation: df-spin 24s linear infinite; }
+  .df-drift { animation: df-drift 4s ease-in-out infinite; }
+  .df-card-float { animation: df-shimmer 7s ease-in-out infinite; }
+
+  /* Countdown digits re-animate on every change (keyed in React) */
+  .df-tick { display: inline-block; animation: df-tick 0.35s ease-out; }
+
+  /* Scroll reveal: direct children of a .df-reveal block rise in sequence */
+  .js .df-reveal > * {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .js .df-reveal.is-visible > * { opacity: 1; transform: none; }
+  .js .df-reveal.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+  .js .df-reveal.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
+  .js .df-reveal.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
+  .js .df-reveal.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
+  .js .df-reveal.is-visible > *:nth-child(n + 6) { transition-delay: 0.5s; }
+
+  /* Grids stagger their own cards once their section is visible */
+  .js .df-reveal .df-stagger > * {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .js .df-reveal.is-visible .df-stagger > * { opacity: 1; transform: none; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(1) { transition-delay: 0.25s; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(2) { transition-delay: 0.33s; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(3) { transition-delay: 0.41s; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(4) { transition-delay: 0.49s; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(5) { transition-delay: 0.57s; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(6) { transition-delay: 0.65s; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(7) { transition-delay: 0.73s; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(8) { transition-delay: 0.81s; }
+  .js .df-reveal.is-visible .df-stagger > *:nth-child(n + 9) { transition-delay: 0.89s; }
+}
+
+/* Hover lift for cards: sticker-style offset shadow */
+.df-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@media (hover: hover) {
+  .df-lift:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 #1e1e1e;
+  }
+}

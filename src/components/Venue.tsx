@@ -43,9 +43,9 @@ export default function Venue() {
             Open in Google Maps
           </Button>
         </Box>
-        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+        <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
           {rooms.map((r) => (
-            <Box key={r.name} sx={{ border: `2px solid ${brand.black}`, borderRadius: 6, p: 2.5, bgcolor: r.bg }}>
+            <Box key={r.name} className="df-lift" sx={{ border: `2px solid ${brand.black}`, borderRadius: 6, p: 2.5, bgcolor: r.bg }}>
               <Typography sx={{ fontWeight: 500, fontSize: '1.2rem' }}>{r.name}</Typography>
               <Typography sx={{ mt: 0.5, fontSize: '0.95rem' }}>{r.use}</Typography>
             </Box>

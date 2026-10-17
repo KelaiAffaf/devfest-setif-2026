@@ -14,8 +14,8 @@ import Countdown from './Countdown';
 export default function Hero() {
   return (
     <Box id="top" component="section" sx={{ position: 'relative', overflow: 'hidden', pt: { xs: 6, md: 10 }, pb: { xs: 8, md: 12 } }}>
-      <Glyph name="asterisk" sx={{ width: 110, top: 48, right: '6%', opacity: 0.9, display: { xs: 'none', md: 'block' } }} />
-      <Glyph name="arrow" sx={{ width: 140, bottom: 40, left: '-30px', display: { xs: 'none', md: 'block' } }} />
+      <Glyph name="asterisk" motion="spin" sx={{ width: 110, top: 48, right: '6%', opacity: 0.9, display: { xs: 'none', md: 'block' } }} />
+      <Glyph name="arrow" motion="drift" sx={{ width: 140, bottom: 40, left: '-30px', display: { xs: 'none', md: 'block' } }} />
 
       <Container maxWidth="lg">
         <Box
@@ -31,14 +31,15 @@ export default function Hero() {
               component="img"
               src={asset('/brand/logo-braces.png')}
               alt="DevFest"
+              className="df-enter df-d1"
               sx={{ width: '100%', maxWidth: 560, display: 'block' }}
             />
             <Stack direction="row" spacing={1.5} sx={{ mt: { xs: 2, md: 3 }, alignItems: 'center', flexWrap: 'wrap', rowGap: 1.5 }}>
-              <Pill size="xl" bg={brand.white}>Setif</Pill>
-              <Pill size="xl" bg={brand.yellow}>2026</Pill>
+              <Pill size="xl" bg={brand.white} className="df-enter-pop df-d2">Setif</Pill>
+              <Pill size="xl" bg={brand.yellow} className="df-enter-pop df-d3">2026</Pill>
             </Stack>
 
-            <Stack direction="row" sx={{ mt: 4, flexWrap: 'wrap', gap: 1 }}>
+            <Stack direction="row" className="df-enter df-d3" sx={{ mt: 4, flexWrap: 'wrap', gap: 1 }}>
               <Pill bg={brand.pastelBlue}>
                 <CalendarMonthRounded fontSize="small" /> {event.date}
               </Pill>
@@ -50,10 +51,10 @@ export default function Hero() {
               </Pill>
             </Stack>
 
-            <Typography sx={{ mt: 3, fontSize: { xs: '1.15rem', md: '1.35rem' }, maxWidth: 560 }}>{event.tagline}</Typography>
+            <Typography className="df-enter df-d4" sx={{ mt: 3, fontSize: { xs: '1.15rem', md: '1.35rem' }, maxWidth: 560 }}>{event.tagline}</Typography>
 
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ mt: 4 }}>
-              <Button href="#register" variant="contained" color="secondary" size="large">
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} className="df-enter df-d5" sx={{ mt: 4 }}>
+              <Button href="#registration-form" variant="contained" color="secondary" size="large">
                 Save your seat
               </Button>
               <Button href="#agenda" variant="outlined" size="large">
@@ -61,13 +62,14 @@ export default function Hero() {
               </Button>
             </Stack>
 
-            <Box sx={{ mt: 5 }}>
+            <Box className="df-enter df-d6" sx={{ mt: 5 }}>
               <Countdown />
             </Box>
           </Box>
 
-          <Box sx={{ position: 'relative' }}>
+          <Box className="df-enter-pop df-d4" sx={{ position: 'relative' }}>
             <Box
+              className="df-card-float"
               sx={{
                 bgcolor: brand.white,
                 border: `2px solid ${brand.black}`,

@@ -28,9 +28,9 @@ export default function About() {
         }
       />
 
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr 1fr', md: 'repeat(4, 1fr)' }, gap: 2 }}>
+      <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr 1fr', md: 'repeat(4, 1fr)' }, gap: 2 }}>
         {stats.map((s) => (
-          <Box key={s.label} sx={{ border: `2px solid ${brand.black}`, borderRadius: 6, p: 3, bgcolor: accentPastel[s.accent] }}>
+          <Box key={s.label} className="df-lift" sx={{ border: `2px solid ${brand.black}`, borderRadius: 6, p: 3, bgcolor: accentPastel[s.accent] }}>
             <Typography sx={{ fontSize: { xs: '2.5rem', md: '3.5rem' }, fontWeight: 500, lineHeight: 1 }}>{s.n}</Typography>
             <Typography sx={{ mt: 1, fontWeight: 500 }}>{s.label}</Typography>
           </Box>
@@ -40,10 +40,11 @@ export default function About() {
       <Typography variant="h4" sx={{ mt: { xs: 8, md: 10 }, mb: 3, fontSize: { xs: '1.6rem', md: '2rem' } }}>
         Who DevFest Setif is for
       </Typography>
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 2 }}>
+      <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 2 }}>
         {audiences.map((a) => (
           <Box
             key={a.who}
+            className="df-lift"
             sx={{ border: `2px solid ${brand.black}`, borderRadius: 6, p: 3, bgcolor: brand.offWhite, display: 'flex', flexDirection: 'column' }}
           >
             <Box sx={{ width: 44, height: 12, borderRadius: 999, bgcolor: accentCore[a.accent], border: `2px solid ${brand.black}`, mb: 2 }} />
@@ -59,7 +60,7 @@ export default function About() {
       <Typography variant="h4" sx={{ mt: { xs: 8, md: 10 }, mb: 3, fontSize: { xs: '1.6rem', md: '2rem' } }}>
         Technologies on stage
       </Typography>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+      <Box className="df-stagger" sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
         {technologies.map((t) => (
           <Box
             key={t.name}

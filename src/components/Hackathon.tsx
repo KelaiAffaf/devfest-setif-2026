@@ -21,6 +21,7 @@ export default function Hackathon() {
       <Box
         component="img"
         src={asset('/brand/glyph-globe.png')}
+        className="df-spin"
         alt=""
         aria-hidden
         sx={{ position: 'absolute', width: 180, top: 0, right: 24, filter: 'invert(1)', opacity: 0.5, display: { xs: 'none', md: 'block' } }}
@@ -33,7 +34,7 @@ export default function Hackathon() {
         intro="A full-day hackathon where every team builds an AI agent with Gemini. Bring your laptop and your team, or come solo and we match you."
       />
 
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr 1fr', md: 'repeat(4, 1fr)' }, gap: 2 }}>
+      <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr 1fr', md: 'repeat(4, 1fr)' }, gap: 2 }}>
         {facts.map((f, i) => (
           <Box
             key={f.k}
@@ -122,10 +123,10 @@ export default function Hackathon() {
       <Box sx={{ mt: 6, display: 'flex', gap: 1.5, flexWrap: 'wrap' }}>
         <Button
           variant="contained"
-          href={regOpen ? links.hackathonRegister : '#register'}
+          href={regOpen ? links.hackathonRegister : '#registration-form'}
           sx={{ bgcolor: brand.yellow, color: brand.black, borderColor: brand.offWhite, '&:hover': { bgcolor: brand.halftoneYellow, boxShadow: `4px 4px 0 ${brand.offWhite}` } }}
         >
-          {regOpen ? 'Register your team' : 'Hackathon registration opens soon'}
+          Register your team
         </Button>
       </Box>
     </Section>

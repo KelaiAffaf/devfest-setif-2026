@@ -14,7 +14,7 @@ export default function Faq() {
   return (
     <Section id="faq">
       <SectionHeader eyebrow="faq" title="Questions" accent="red" />
-      <Box sx={{ display: 'grid', gap: 1.5, maxWidth: 880 }}>
+      <Box className="df-stagger" sx={{ display: 'grid', gap: 1.5, maxWidth: 880 }}>
         {faqs.map((f) => (
           <Accordion
             key={f.q}

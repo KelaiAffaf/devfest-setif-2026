@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { brand, fontMono } from '@/brand';
 import { event, links } from '@/data/event';
 import { Section, SectionHeader, Glyph } from './ui';
+import RegistrationForm from './RegistrationForm';
 
 type Card = {
   title: string;
@@ -20,16 +21,16 @@ export default function Register() {
       title: 'Attend',
       body: 'Talks, workshops, lunch and networking. Pick the Builder or Developer track for the afternoon.',
       cta: 'Register to attend',
-      pendingCta: 'Registration opens soon',
-      href: links.register,
+      pendingCta: 'Register to attend',
+      href: links.register || '#registration-form',
       bg: brand.pastelBlue,
     },
     {
       title: 'Hack',
       body: 'Join the Agentathon with a team of 3 to 5, or register solo and get matched on the day.',
       cta: 'Register for the hackathon',
-      pendingCta: 'Registration opens soon',
-      href: links.hackathonRegister,
+      pendingCta: 'Register for the hackathon',
+      href: links.hackathonRegister || '#registration-form',
       bg: brand.pastelGreen,
     },
     {
@@ -49,14 +50,16 @@ export default function Register() {
         eyebrow="join"
         title="Be part of it"
         accent="yellow"
-        intro={`${event.date}, ${event.venue}. Follow GDG Setif on the GDG community platform to get notified when registration goes live.`}
+        intro={`${event.date}, ${event.venue}. Registration is open. Fill in the form below to save your seat in the talks and workshops or the Agentathon.`}
       />
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 2 }}>
+      <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 2 }}>
         {cards.map((c) => {
           const live = Boolean(c.href);
+          const internal = c.href.startsWith('#');
           return (
             <Box
               key={c.title}
+              className="df-lift"
               sx={{ border: `2px solid ${brand.black}`, borderRadius: 6, p: 3, bgcolor: c.bg, display: 'flex', flexDirection: 'column', minHeight: 260 }}
             >
               <Typography sx={{ fontSize: '2.2rem', fontWeight: 500 }}>{c.title}</Typography>
@@ -65,8 +68,8 @@ export default function Register() {
                 variant="contained"
                 color="secondary"
                 href={live ? c.href : links.chapter}
-                target="_blank"
-                rel="noopener"
+                target={internal ? undefined : '_blank'}
+                rel={internal ? undefined : 'noopener'}
                 sx={{ mt: 3, alignSelf: 'flex-start' }}
               >
                 {live ? c.cta : c.pendingCta}
@@ -74,6 +77,9 @@ export default function Register() {
             </Box>
           );
         })}
+      </Box>
+      <Box sx={{ mt: { xs: 6, md: 8 } }}>
+        <RegistrationForm />
       </Box>
       <Typography sx={{ mt: 3, fontFamily: fontMono, fontSize: '0.9rem', color: 'text.secondary' }}>
         Follow along: {event.hashtags.join(' ')}

@@ -3,6 +3,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { brand, fontMono, asset } from '@/brand';
 import type { Accent } from '@/data/event';
+import Reveal from './Reveal';
 
 export const accentCore: Record<Accent, string> = {
   blue: brand.blue,
@@ -32,12 +33,14 @@ export function Pill({
   color = brand.black,
   size = 'md',
   sx,
+  className,
 }: {
   children: React.ReactNode;
   bg?: string;
   color?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   sx?: BoxProps['sx'];
+  className?: string;
 }) {
   const sizes = {
     sm: { px: 1.5, py: 0.25, fontSize: '0.85rem', border: 1.5 },
@@ -48,6 +51,7 @@ export function Pill({
   return (
     <Box
       component="span"
+      className={className}
       sx={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -88,7 +92,7 @@ export function Section({
       sx={{ py: { xs: 8, md: 12 }, bgcolor: bg, scrollMarginTop: 72, position: 'relative', overflow: 'hidden', ...sx }}
     >
       <Container maxWidth="lg" sx={{ position: 'relative' }}>
-        {children}
+        <Reveal>{children}</Reveal>
       </Container>
     </Box>
   );
@@ -141,11 +145,22 @@ export function SectionHeader({
   );
 }
 
-export function Glyph({ name, sx, alt = '' }: { name: string; sx?: BoxProps['sx']; alt?: string }) {
+export function Glyph({
+  name,
+  sx,
+  alt = '',
+  motion = 'float',
+}: {
+  name: string;
+  sx?: BoxProps['sx'];
+  alt?: string;
+  motion?: 'float' | 'spin' | 'drift' | 'none';
+}) {
   return (
     <Box
       component="img"
       src={asset(`/brand/glyph-${name}.png`)}
+      className={motion === 'none' ? undefined : `df-${motion}`}
       alt={alt}
       aria-hidden={alt ? undefined : true}
       sx={{ position: 'absolute', pointerEvents: 'none', userSelect: 'none', ...sx }}

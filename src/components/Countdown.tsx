@@ -49,7 +49,9 @@ export default function Countdown() {
           }}
         >
           <Typography sx={{ fontFamily: fontMono, fontSize: { xs: '1.5rem', sm: '2rem' }, fontWeight: 500, lineHeight: 1.1 }}>
-            {t ? String(t[c.key]).padStart(2, '0') : '--'}
+            <span key={t ? t[c.key] : 'x'} className="df-tick">
+              {t ? String(t[c.key]).padStart(2, '0') : '--'}
+            </span>
           </Typography>
           <Typography sx={{ fontSize: '0.8rem', color: 'text.secondary' }}>{c.label}</Typography>
         </Box>
