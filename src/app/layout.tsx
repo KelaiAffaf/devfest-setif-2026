@@ -7,6 +7,7 @@ import { event } from '@/data/event';
 import { asset } from '@/brand';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'http://localhost:3000'),
   title: `${event.name} | ${event.organizer}`,
   description: `${event.date} at ${event.venue}. ${event.tagline}`,
   openGraph: {
