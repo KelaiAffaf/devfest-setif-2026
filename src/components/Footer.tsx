@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import { brand, fontMono } from '@/brand';
+import { brand, fontMono, asset } from '@/brand';
 import { event, links } from '@/data/event';
 
 export default function Footer() {
@@ -21,7 +21,7 @@ export default function Footer() {
           <Box>
             <Box
               component="img"
-              src="/brand/logo-2026.png"
+              src={asset('/brand/logo-2026.png')}
               alt="DevFest 2026"
               sx={{ width: { xs: 260, md: 380 }, display: 'block', bgcolor: brand.offWhite, borderRadius: 999, px: 3, py: 1.5, boxSizing: 'content-box' }}
             />

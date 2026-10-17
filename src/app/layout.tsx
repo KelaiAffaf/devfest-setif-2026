@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '@/theme';
 import { event } from '@/data/event';
+import { asset } from '@/brand';
 
 export const metadata: Metadata = {
   title: `${event.name} | ${event.organizer}`,
@@ -11,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: event.name,
     description: event.tagline,
-    images: ['/brand/logo-2026.png'],
+    images: [asset('/brand/logo-2026.png')],
   },
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: asset('/favicon.svg') },
 };
 
 export const viewport: Viewport = {

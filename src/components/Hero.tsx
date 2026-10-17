@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import CalendarMonthRounded from '@mui/icons-material/CalendarMonthRounded';
 import PlaceRounded from '@mui/icons-material/PlaceRounded';
 import ScheduleRounded from '@mui/icons-material/ScheduleRounded';
-import { brand } from '@/brand';
+import { brand, asset } from '@/brand';
 import { event } from '@/data/event';
 import { Pill, Glyph } from './ui';
 import Countdown from './Countdown';
@@ -29,7 +29,7 @@ export default function Hero() {
           <Box>
             <Box
               component="img"
-              src="/brand/logo-braces.png"
+              src={asset('/brand/logo-braces.png')}
               alt="DevFest"
               sx={{ width: '100%', maxWidth: 560, display: 'block' }}
             />
@@ -78,7 +78,7 @@ export default function Hero() {
             >
               <Box
                 component="img"
-                src="/brand/stickers.png"
+                src={asset('/brand/stickers.png')}
                 alt="DevFest 2026 sticker glyphs"
                 sx={{ width: '100%', display: 'block', aspectRatio: '16 / 9', objectFit: 'cover' }}
               />

@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { brand, fontMono } from '@/brand';
+import { brand, fontMono, asset } from '@/brand';
 import { hackathon, trackB, links } from '@/data/event';
 import { Section, SectionHeader, Pill, accentCore, Glyph } from './ui';
 
@@ -20,7 +20,7 @@ export default function Hackathon() {
     <Section id="hackathon" bg={brand.black} sx={{ color: brand.offWhite }}>
       <Box
         component="img"
-        src="/brand/glyph-globe.png"
+        src={asset('/brand/glyph-globe.png')}
         alt=""
         aria-hidden
         sx={{ position: 'absolute', width: 180, top: 0, right: 24, filter: 'invert(1)', opacity: 0.5, display: { xs: 'none', md: 'block' } }}

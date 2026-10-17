@@ -31,7 +31,18 @@ Brand tokens live in `src/brand.ts`, the MUI theme in `src/theme.ts`, brand imag
 
 ## Deploy
 
-Works out of the box on Vercel or Firebase App Hosting. `npm run build` produces a fully static home page.
+The site deploys to GitHub Pages on every push to `main` through `.github/workflows/deploy.yml`.
+
+- Live URL: https://kelaiaffaf.github.io/devfest-setif-2026/
+- The build is a static export (`output: 'export'` in `next.config.mjs`).
+- The workflow sets `BASE_PATH=/devfest-setif-2026` so assets resolve under the repo sub-folder. Local dev runs at the root with no base path.
+- Reference images in code through `asset('/brand/...')` from `src/brand.ts`, so the base path applies.
+
+Build the static site locally:
+
+```bash
+BASE_PATH=/devfest-setif-2026 npm run build   # output in out/
+```
 
 ## Structure
 

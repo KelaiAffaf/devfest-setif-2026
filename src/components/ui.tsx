@@ -1,7 +1,7 @@
 import Box, { BoxProps } from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { brand, fontMono } from '@/brand';
+import { brand, fontMono, asset } from '@/brand';
 import type { Accent } from '@/data/event';
 
 export const accentCore: Record<Accent, string> = {
@@ -145,7 +145,7 @@ export function Glyph({ name, sx, alt = '' }: { name: string; sx?: BoxProps['sx'
   return (
     <Box
       component="img"
-      src={`/brand/glyph-${name}.png`}
+      src={asset(`/brand/glyph-${name}.png`)}
       alt={alt}
       aria-hidden={alt ? undefined : true}
       sx={{ position: 'absolute', pointerEvents: 'none', userSelect: 'none', ...sx }}

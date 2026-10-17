@@ -20,3 +20,8 @@ export const brand = {
 export const fontSans =
   '"Google Sans", "Google Sans Text", "Product Sans", Roboto, "Helvetica Neue", Arial, sans-serif';
 export const fontMono = '"Roboto Mono", "PT Mono", ui-monospace, monospace';
+
+// Base path for static hosting under a sub-folder (GitHub Pages: /devfest-setif-2026).
+// Empty in local dev. Set BASE_PATH at build time; next.config.mjs exposes it here.
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+export const asset = (path: string) => `${basePath}${path}`;

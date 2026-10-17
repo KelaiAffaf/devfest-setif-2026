@@ -13,7 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Container from '@mui/material/Container';
 import MenuRounded from '@mui/icons-material/MenuRounded';
 import CloseRounded from '@mui/icons-material/CloseRounded';
-import { brand } from '@/brand';
+import { brand, asset } from '@/brand';
 
 const nav = [
   { label: 'About', href: '#about' },
@@ -41,7 +41,7 @@ export default function Header() {
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 72 }, gap: 2 }}>
           <Box component="a" href="#top" sx={{ display: 'flex', alignItems: 'center', gap: 1.5, textDecoration: 'none' }}>
-            <Box component="img" src="/brand/logo-braces.png" alt="DevFest" sx={{ height: { xs: 28, md: 34 } }} />
+            <Box component="img" src={asset('/brand/logo-braces.png')} alt="DevFest" sx={{ height: { xs: 28, md: 34 } }} />
             <Box
               component="span"
               sx={{
