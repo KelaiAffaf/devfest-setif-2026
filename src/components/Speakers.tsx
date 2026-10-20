@@ -23,7 +23,7 @@ export default function Speakers() {
         eyebrow="speakers"
         title="Meet the speakers"
         accent="red"
-        intro="Google Developer Experts and builders from Algeria, Egypt and beyond. Talks in the main hall in the morning, hands-on workshops in the afternoon. Session times are announced soon."
+        intro="Google Developer Experts and builders from Algeria, Egypt and beyond. Talks in the main hall in the morning, hands-on workshops in the afternoon. Times are in the agenda."
       />
 
       <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 2 }}>

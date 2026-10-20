@@ -15,7 +15,7 @@ const rooms = [
 export default function Venue() {
   return (
     <Section id="venue" bg={brand.white} sx={{ borderTop: `2px solid ${brand.black}`, borderBottom: `2px solid ${brand.black}` }}>
-      <SectionHeader eyebrow="venue" title={event.venue} accent="blue" intro={`${event.city}. Volunteers welcome you from 08:00.`} />
+      <SectionHeader eyebrow="venue" title={event.venue} accent="blue" intro={`${event.city}. Volunteers welcome you from 09:00.`} />
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 3, alignItems: 'stretch' }}>
         <Box
           sx={{

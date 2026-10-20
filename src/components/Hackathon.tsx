@@ -14,7 +14,7 @@ const facts = [
 
 export default function Hackathon() {
   const regOpen = Boolean(links.hackathonRegister);
-  const milestones = trackB.filter((i) => ['09:15', '09:45', '11:00', '14:00', '16:30', '16:45'].includes(i.time) && i.title !== 'Pitch prep');
+  const milestones = trackB.filter((i) => ['10:00', '10:30', '11:45', '14:45', '17:15', '17:30'].includes(i.time) && i.title !== 'Pitch prep');
 
   return (
     <Section id="hackathon" bg={brand.black} sx={{ color: brand.offWhite }}>

@@ -100,7 +100,7 @@ export default function Agenda() {
         eyebrow="agenda"
         title="Agenda"
         accent="green"
-        intro="Saturday, November 21. Doors open at 08:00. Yellow rows bring everyone together in the main hall. Session titles land as speakers confirm."
+        intro="Saturday, November 21. Doors open at 09:00. Yellow rows bring everyone together in the main hall."
       />
       <Tabs
         value={tab}

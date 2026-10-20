@@ -9,9 +9,9 @@ export const event = {
   organizer: 'GDG Setif',
   date: 'Saturday, November 21, 2026',
   shortDate: 'Nov 21, 2026',
-  hours: '08:00 to 18:30',
+  hours: '09:00 to 19:15',
   // Event start in Algiers time (UTC+01:00)
-  startsAt: '2026-11-21T08:00:00+01:00',
+  startsAt: '2026-11-21T09:00:00+01:00',
   venue: 'Skills Center Setif',
   city: 'Setif, Algeria',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Skills+Center+Setif',
@@ -47,84 +47,49 @@ export type AgendaItem = {
 };
 
 export const agendaOverview: { time: string; trackA: string; trackB: string; allHands?: boolean }[] = [
-  { time: '08:00 to 08:45', trackA: 'Registration, badges, breakfast', trackB: 'Registration, team check-in' },
-  { time: '08:45 to 09:15', trackA: 'Opening ceremony, main hall', trackB: 'Opening ceremony, main hall', allHands: true },
-  { time: '09:15 to 12:45', trackA: 'Keynote, 4 talks, panel (main hall)', trackB: 'Theme reveal, build starts 09:45, mentor round 1' },
-  { time: '12:45 to 14:00', trackA: 'Lunch and networking', trackB: 'Lunch on site', allHands: true },
-  { time: '14:00 to 17:15', trackA: '4 workshops: Room 1 Builder track, Room 2 Developer track', trackB: 'Mentor round 2, code freeze 16:30' },
-  { time: '16:45 to 17:45', trackA: 'Workshop attendees join demos at 17:15', trackB: 'Demos and judging' },
-  { time: '18:00 to 18:30', trackA: 'Closing: awards, speaker thanks, group photo', trackB: 'Closing: awards, speaker thanks, group photo', allHands: true },
+  { time: '09:00 to 09:30', trackA: 'Welcome, registration, badges', trackB: 'Registration, team check-in' },
+  { time: '09:30 to 10:00', trackA: 'Opening ceremony, main hall', trackB: 'Opening ceremony, main hall', allHands: true },
+  { time: '10:00 to 13:30', trackA: 'Keynote and 5 talks (main hall)', trackB: 'Theme reveal, build starts 10:30, mentor round 1' },
+  { time: '13:30 to 14:45', trackA: 'Lunch and networking', trackB: 'Lunch on site', allHands: true },
+  { time: '14:45 to 18:00', trackA: 'Workshops: Room 1 Builder track, Room 2 Developer track', trackB: 'Mentor round 2, code freeze 17:15' },
+  { time: '17:30 to 18:30', trackA: 'Workshop attendees join demos at 18:00', trackB: 'Demos and judging' },
+  { time: '18:45 to 19:15', trackA: 'Closing: awards, speaker thanks, group photo', trackB: 'Closing: awards, speaker thanks, group photo', allHands: true },
 ];
 
 export const trackA: AgendaItem[] = [
-  { time: '08:00', title: 'Registration, badges, breakfast' },
-  { time: '08:45', title: 'Opening ceremony', detail: 'All participants, main hall', allHands: true },
-  { time: '09:15', title: 'Keynote', detail: 'Main hall' },
-  { time: '09:45', title: 'Talk 1', detail: 'Main hall' },
-  { time: '10:15', title: 'Talk 2', detail: 'Main hall' },
-  { time: '10:45', title: 'Coffee break' },
+  { time: '09:00', title: 'Welcome and registration', detail: 'Badges and coffee' },
+  { time: '09:30', title: 'Opening ceremony', detail: 'GDG Setif organizers, all participants, main hall', allHands: true },
+  { time: '10:00', title: 'Keynote', detail: 'Speaker announced soon, main hall' },
+  { time: '10:30', title: 'Applied AI and computer vision', detail: 'Dr. Asma Merabet, main hall' },
   { time: '11:00', title: 'Securing AI Agents', detail: 'Afaf Kelai, main hall' },
-  { time: '11:30', title: 'Talk 4', detail: 'Main hall' },
-  { time: '12:00', title: 'Panel or lightning talks', detail: 'Main hall' },
-  { time: '12:45', title: 'Lunch and networking', detail: 'All participants', allHands: true },
-  { time: '14:00', title: 'Workshops, round 1', detail: 'Room 1 Builder track, Room 2 Developer track' },
-  { time: '15:30', title: 'Coffee break' },
-  { time: '15:45', title: 'Workshops, round 2', detail: 'Room 1 Builder track, Room 2 Developer track' },
-  { time: '17:15', title: 'Join the hackathon demos', detail: 'Hackathon room' },
-  { time: '18:00', title: 'Closing ceremony', detail: 'Hackathon awards, speaker thanks, group photo', allHands: true },
+  { time: '11:30', title: 'Coffee break' },
+  { time: '11:45', title: 'Bridging the Gap: How We Built Hybrid Mobile AI Before Google Made It Native', detail: 'Chiraz Chahbani, main hall' },
+  { time: '12:15', title: 'Flutter & Dart', detail: 'Tarek Alabd, main hall' },
+  { time: '12:45', title: 'Android, Jetpack Compose & KMP', detail: 'Ahmed Nabil, main hall' },
+  { time: '13:30', title: 'Lunch and networking', detail: 'All participants', allHands: true },
+  { time: '14:45', title: 'Workshops, round 1', detail: 'Room 1: Build your own vibe app on Google Cloud, Udesh Udayakumar. Room 2: Developer track, announced soon' },
+  { time: '16:15', title: 'Coffee break' },
+  { time: '16:30', title: 'Workshops, round 2', detail: 'Room 1 Builder track, Room 2 Developer track, announced soon' },
+  { time: '18:00', title: 'Join the hackathon demos', detail: 'Hackathon room' },
+  { time: '18:45', title: 'Closing ceremony', detail: 'Hackathon awards, speaker thanks, group photo', allHands: true },
 ];
 
 export const trackB: AgendaItem[] = [
-  { time: '08:00', title: 'Registration, team check-in' },
-  { time: '08:45', title: 'Opening ceremony', detail: 'All participants, main hall', allHands: true },
-  { time: '09:15', title: 'Theme reveal and rules', detail: 'Team formation for solo participants' },
-  { time: '09:45', title: 'Build starts' },
-  { time: '11:00', title: 'Mentor round 1', detail: 'Idea check' },
-  { time: '12:45', title: 'Lunch on site', allHands: true },
-  { time: '14:00', title: 'Mentor round 2', detail: 'Technical help' },
-  { time: '16:30', title: 'Code freeze and submission', detail: 'Repo link, 1 slide, 1 minute demo' },
-  { time: '16:30', title: 'Pitch prep' },
-  { time: '16:45', title: 'Demos and judging', detail: '3 min pitch plus 2 min Q&A per team' },
-  { time: '18:00', title: 'Awards at the closing', detail: 'Main hall', allHands: true },
-];
-
-export type Session = {
-  slot: string;
-  time: string;
-  room: string;
-  speaker?: string;
-  title?: string;
-  description?: string;
-  track?: 'Builder' | 'Developer';
-  confirmed: boolean;
-  accent: Accent;
-};
-
-export const sessions: Session[] = [
-  { slot: 'Keynote', time: '09:15', room: 'Main hall', confirmed: false, accent: 'blue' },
-  { slot: 'Talk 1', time: '09:45', room: 'Main hall', confirmed: false, accent: 'green' },
-  { slot: 'Talk 2', time: '10:15', room: 'Main hall', confirmed: false, accent: 'yellow' },
-  {
-    slot: 'Talk 3',
-    time: '11:00',
-    room: 'Main hall',
-    speaker: 'Afaf Kelai',
-    title: 'Securing AI Agents',
-    description:
-      'Results from an open-source suite of prompt injection attacks in English, French, and Arabic, and a practical checklist to secure agents built with Gemini and Google Cloud.',
-    confirmed: true,
-    accent: 'red',
-  },
-  { slot: 'Talk 4', time: '11:30', room: 'Main hall', confirmed: false, accent: 'blue' },
-  { slot: 'Panel', time: '12:00', room: 'Main hall', confirmed: false, accent: 'green' },
-  { slot: 'Workshop 1A', time: '14:00', room: 'Room 1', track: 'Builder', confirmed: false, accent: 'yellow' },
-  { slot: 'Workshop 1B', time: '14:00', room: 'Room 2', track: 'Developer', confirmed: false, accent: 'red' },
-  { slot: 'Workshop 2A', time: '15:45', room: 'Room 1', track: 'Builder', confirmed: false, accent: 'blue' },
-  { slot: 'Workshop 2B', time: '15:45', room: 'Room 2', track: 'Developer', confirmed: false, accent: 'green' },
+  { time: '09:00', title: 'Registration, team check-in' },
+  { time: '09:30', title: 'Opening ceremony', detail: 'All participants, main hall', allHands: true },
+  { time: '10:00', title: 'Theme reveal and rules', detail: 'Team formation for solo participants' },
+  { time: '10:30', title: 'Build starts' },
+  { time: '11:45', title: 'Mentor round 1', detail: 'Idea check' },
+  { time: '13:30', title: 'Lunch on site', allHands: true },
+  { time: '14:45', title: 'Mentor round 2', detail: 'Technical help' },
+  { time: '17:15', title: 'Code freeze and submission', detail: 'Repo link, 1 slide, 1 minute demo' },
+  { time: '17:15', title: 'Pitch prep' },
+  { time: '17:30', title: 'Demos and judging', detail: '3 min pitch plus 2 min Q&A per team' },
+  { time: '18:45', title: 'Awards at the closing', detail: 'Main hall', allHands: true },
 ];
 
 // Speakers from the "Fiche Technique: Programme & Intervenants" (GDG Setif).
-// Session times are still to be confirmed with each speaker.
+// Time slots for each speaker live in trackA above.
 export type Speaker = {
   name: string;
   role: string;
@@ -265,15 +230,15 @@ export const technologies: { name: string; accent: Accent }[] = [
 
 export const hackathon = {
   name: 'Agentathon',
-  hours: '09:15 to 17:45',
+  hours: '10:00 to 18:30',
   teamSize: '3 to 5',
   buildTime: '6.5 hours',
   rules: [
-    'Teams of 3 to 5. Solo participants get matched at 09:15.',
+    'Teams of 3 to 5. Solo participants get matched at 10:00.',
     'All code written on the day. Ideas and designs prepared ahead are allowed.',
     'Every team builds with Gemini. A live leaderboard shows mentor round scores.',
     'Every project uses at least one more Google tool: AI Studio, Gemini CLI, Antigravity, Firebase, Flutter, Android, or Google Cloud.',
-    'Submit at code freeze (16:30): repo link, 1 slide, 1 minute demo video or live demo.',
+    'Submit at code freeze (17:15): repo link, 1 slide, 1 minute demo video or live demo.',
   ],
   rubric: [
     { criterion: 'Impact and fit with the theme', weight: 30, accent: 'blue' as Accent },
@@ -294,7 +259,7 @@ export const faqs = [
   },
   {
     q: 'Can I join the hackathon solo?',
-    a: 'Yes. Register as solo and we match you into a team of 3 to 5 at 09:15 on the day.',
+    a: 'Yes. Register as solo and we match you into a team of 3 to 5 at 10:00 on the day.',
   },
   {
     q: 'What do I bring to the hackathon?',
@@ -302,6 +267,6 @@ export const faqs = [
   },
   {
     q: 'Can I attend both tracks?',
-    a: 'Talk and workshop attendees join the hackathon demos at 17:15. Hackathon teams stay in the hackathon room during build time.',
+    a: 'Talk and workshop attendees join the hackathon demos at 18:00. Hackathon teams stay in the hackathon room during build time.',
   },
 ];
