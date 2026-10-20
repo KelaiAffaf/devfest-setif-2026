@@ -123,7 +123,94 @@ export const sessions: Session[] = [
   { slot: 'Workshop 2B', time: '15:45', room: 'Room 2', track: 'Developer', confirmed: false, accent: 'green' },
 ];
 
-export const audiences: { who: string; promise: string; where: string; accent: Accent }[] = [
+// Speakers from the "Fiche Technique: Programme & Intervenants" (GDG Setif).
+// Session times are still to be confirmed with each speaker.
+export type Speaker = {
+  name: string;
+  role: string;
+  company?: string;
+  location?: string;
+  gde?: string;
+  bio: string;
+  expertise: string[];
+  session: string;
+  sessionConfirmed: boolean;
+  link?: { label: string; url: string };
+  accent: Accent;
+};
+
+export const speakers: Speaker[] = [
+  {
+    name: 'Tarek Alabd',
+    role: 'Software Engineer Team Leader',
+    company: 'Mega Trust Group',
+    location: 'Cairo, Egypt',
+    gde: 'Flutter & Dart',
+    bio: 'Software engineer with 8+ years of experience, 5+ of them in Flutter, plus front-end web, native Android (Java) and native iOS (Swift). Technical content creator on YouTube, trainer and international speaker.',
+    expertise: ['Flutter', 'Dart', 'Clean Architecture', 'OOP', 'TDD', 'Android', 'iOS'],
+    session: 'Flutter & Dart',
+    sessionConfirmed: false,
+    link: { label: 'LinkedIn', url: 'https://www.linkedin.com/in/tarekalabd/' },
+    accent: 'blue',
+  },
+  {
+    name: 'Dr. Asma Merabet',
+    role: 'Data Scientist, Data Aggregation & Agent Infrastructure',
+    company: 'Distinct Health',
+    location: 'El Eulma, Algeria',
+    gde: 'AI',
+    bio: 'PhD in AI (computer vision and agentic AI), specialized in vision-language models and Keras, and a qualified lawyer (CAPA). Founder of Smart ColoTrust, an explainable agentic AI platform for colorectal cancer diagnosis built from her doctoral research. Lead Organizer of GDG Setif.',
+    expertise: ['Explainable AI', 'Vision-Language Models', 'Keras', 'Agentic AI', 'Medical imaging'],
+    session: 'Applied AI and computer vision',
+    sessionConfirmed: false,
+    accent: 'green',
+  },
+  {
+    name: 'Afaf Kelai',
+    role: 'AI Engineer',
+    location: 'Algeria',
+    bio: 'AI engineer and GDG Setif organizer, with expertise in agentic AI, large language models and computer vision.',
+    expertise: ['Agentic AI', 'LLMs', 'Computer Vision'],
+    session: 'Securing AI Agents in Arabic, French, and Darija',
+    sessionConfirmed: true,
+    accent: 'red',
+  },
+  {
+    name: 'Ahmed Nabil',
+    role: 'Senior Software Tech Lead',
+    company: 'Vodafone Intelligent Solutions (VOIS)',
+    gde: 'Android',
+    bio: '25+ years of expertise, coding since age 11. Specialist in large-scale mobile architecture with a focus on Android, Jetpack Compose and Kotlin Multiplatform. Led projects with 10M+ downloads, passionate open-source contributor and mentor to 100,000+ developers across 6 countries.',
+    expertise: ['Android', 'Jetpack Compose', 'Kotlin Multiplatform'],
+    session: 'Android, Jetpack Compose & KMP',
+    sessionConfirmed: false,
+    link: { label: 'Linktree', url: 'https://linktr.ee/AhmedNMahran' },
+    accent: 'yellow',
+  },
+  {
+    name: 'Chiraz Chahbani',
+    role: 'Software Engineer',
+    company: 'InterForma',
+    gde: 'Cloud',
+    bio: 'Software engineer and agrifood innovation specialist, with a Master in Innovation and Entrepreneurship in the Mediterranean agrifood sector. GDG organizer and Women Techmakers Ambassador. Runs hands-on workshops on Google Cloud, generative AI and cloud-native technologies.',
+    expertise: ['Google Cloud', 'Generative AI', 'MLOps', 'Cloud-native'],
+    session: 'Bridging the Gap: How We Built Hybrid Mobile AI Before Google Made It Native',
+    sessionConfirmed: true,
+    accent: 'blue',
+  },
+  {
+    name: 'Udesh Udayakumar',
+    role: 'Enterprise Architect',
+    company: 'Aviato Consulting',
+    bio: '5+ years in sales, presales, enterprise training and delivery on Google Cloud, with expertise in infrastructure modernization, automation, DevOps and Kubernetes. Creator of the YouTube channel and podcast "The Cloud Pilot". Speaker at 100+ events.',
+    expertise: ['Google Cloud', 'DevOps', 'Kubernetes', 'Automation'],
+    session: 'Build your own vibe app on Google Cloud',
+    sessionConfirmed: true,
+    accent: 'green',
+  },
+];
+
+export const audiences:{ who: string; promise: string; where: string; accent: Accent }[] = [
   {
     who: 'Professional developers',
     promise: 'Engineering workflows for the agentic era. Safe, scalable apps.',

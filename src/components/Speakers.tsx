@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { brand, fontMono } from '@/brand';
-import { sessions, workshopTracks, links } from '@/data/event';
+import { speakers, workshopTracks, links } from '@/data/event';
 import { Section, SectionHeader, Pill, accentCore, accentPastel, Glyph } from './ui';
 
 function initials(name: string) {
@@ -21,70 +21,96 @@ export default function Speakers() {
       <Glyph name="at" sx={{ width: 120, top: 40, right: 24, display: { xs: 'none', md: 'block' } }} />
       <SectionHeader
         eyebrow="speakers"
-        title="Talks and workshops"
+        title="Meet the speakers"
         accent="red"
-        intro="1 keynote, 4 talks and a panel in the main hall. 4 hands-on workshops in the afternoon across 2 rooms. Speakers get announced from November 4."
+        intro="Google Developer Experts and builders from Algeria, Egypt and beyond. Talks in the main hall in the morning, hands-on workshops in the afternoon. Session times are announced soon."
       />
 
-      <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' }, gap: 2 }}>
-        {sessions.map((s) => (
+      <Box className="df-stagger" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 2 }}>
+        {speakers.map((sp) => (
           <Box
-            key={s.slot}
-              className="df-lift"
+            key={sp.name}
+            className="df-lift"
             sx={{
               border: `2px solid ${brand.black}`,
               borderRadius: 6,
-              p: 3,
+              p: { xs: 2.5, md: 3 },
               display: 'flex',
               flexDirection: 'column',
-              bgcolor: s.confirmed ? accentPastel[s.accent] : brand.offWhite,
-              gridColumn: s.confirmed ? { md: 'span 2' } : undefined,
-              minHeight: 220,
+              gap: 2,
+              bgcolor: brand.white,
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, flexWrap: 'wrap' }}>
-              <Pill size="sm" bg={accentCore[s.accent]} color={s.accent === 'yellow' ? brand.black : brand.white}>
-                {s.slot}
-              </Pill>
-              <Typography sx={{ fontFamily: fontMono, fontSize: '0.9rem' }}>
-                {s.time} · {s.room}
-                {s.track ? ` · ${s.track}` : ''}
-              </Typography>
+            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+              <Box
+                aria-hidden
+                sx={{
+                  flexShrink: 0,
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  border: `2px solid ${brand.black}`,
+                  bgcolor: accentCore[sp.accent],
+                  color: sp.accent === 'yellow' ? brand.black : brand.white,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.7rem',
+                  fontWeight: 500,
+                }}
+              >
+                {initials(sp.name.replace(/^Dr\. /, ''))}
+              </Box>
+              <Box sx={{ minWidth: 0 }}>
+                <Typography variant="h5" component="h3" sx={{ fontSize: { xs: '1.3rem', md: '1.5rem' }, lineHeight: 1.2 }}>
+                  {sp.name}
+                </Typography>
+                <Typography sx={{ fontWeight: 500, mt: 0.25 }}>
+                  {sp.role}
+                  {sp.company ? `, ${sp.company}` : ''}
+                </Typography>
+                {sp.location && (
+                  <Typography sx={{ fontFamily: fontMono, fontSize: '0.85rem', color: 'text.secondary', mt: 0.25 }}>
+                    {sp.location}
+                  </Typography>
+                )}
+              </Box>
             </Box>
 
-            {s.confirmed ? (
-              <Box sx={{ display: 'flex', gap: 2.5, mt: 3, alignItems: 'flex-start', flexDirection: { xs: 'column', sm: 'row' } }}>
-                <Box
-                  aria-hidden
-                  sx={{
-                    flexShrink: 0,
-                    width: 96,
-                    height: 96,
-                    borderRadius: '50%',
-                    border: `2px solid ${brand.black}`,
-                    bgcolor: accentCore[s.accent],
-                    color: brand.white,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '2rem',
-                    fontWeight: 500,
-                  }}
-                >
-                  {initials(s.speaker!)}
-                </Box>
-                <Box>
-                  <Typography variant="h5" sx={{ fontSize: { xs: '1.35rem', md: '1.6rem' }, lineHeight: 1.2 }}>
-                    {s.title}
-                  </Typography>
-                  <Typography sx={{ mt: 0.5, fontWeight: 500 }}>{s.speaker}</Typography>
-                  <Typography sx={{ mt: 1.5 }}>{s.description}</Typography>
-                </Box>
+            {sp.gde && (
+              <Box>
+                <Pill size="sm" bg={accentPastel[sp.accent]} color={brand.black}>
+                  Google Developer Expert, {sp.gde}
+                </Pill>
               </Box>
-            ) : (
-              <Box sx={{ mt: 'auto', pt: 4 }}>
-                <Typography sx={{ fontSize: '1.4rem', fontWeight: 500, color: '#8a8a8a' }}>{'{ speaker TBA }'}</Typography>
-                <Typography sx={{ mt: 0.5, color: 'text.secondary', fontSize: '0.95rem' }}>Announced soon</Typography>
+            )}
+
+            <Box sx={{ border: `2px solid ${brand.black}`, borderRadius: 4, p: 2, bgcolor: accentPastel[sp.accent] }}>
+              <Typography sx={{ fontFamily: fontMono, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 1 }}>
+                {sp.sessionConfirmed ? 'Session' : 'Session, topic to be confirmed'}
+              </Typography>
+              <Typography sx={{ fontWeight: 500, fontSize: '1.1rem', mt: 0.5, lineHeight: 1.3 }}>{sp.session}</Typography>
+            </Box>
+
+            <Typography sx={{ fontSize: '0.98rem' }}>{sp.bio}</Typography>
+
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 'auto' }}>
+              {sp.expertise.map((e) => (
+                <Box
+                  key={e}
+                  component="span"
+                  sx={{ fontFamily: fontMono, fontSize: '0.78rem', border: `1.5px solid ${brand.black}`, borderRadius: 999, px: 1.25, py: 0.25 }}
+                >
+                  {e}
+                </Box>
+              ))}
+            </Box>
+
+            {sp.link && (
+              <Box>
+                <Button variant="outlined" size="small" href={sp.link.url} target="_blank" rel="noopener">
+                  {sp.link.label}
+                </Button>
               </Box>
             )}
           </Box>
