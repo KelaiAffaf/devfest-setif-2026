@@ -87,9 +87,10 @@ export default function Speakers() {
 
             <Box sx={{ border: `2px solid ${brand.black}`, borderRadius: 4, p: 2, bgcolor: accentPastel[sp.accent] }}>
               <Typography sx={{ fontFamily: fontMono, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: 1 }}>
-                {sp.sessionConfirmed ? 'Session' : 'Session, topic to be confirmed'}
+                Session
               </Typography>
               <Typography sx={{ fontWeight: 500, fontSize: '1.1rem', mt: 0.5, lineHeight: 1.3 }}>{sp.session}</Typography>
+              {sp.sessionDescription && <Typography sx={{ mt: 1, fontSize: '0.95rem' }}>{sp.sessionDescription}</Typography>}
             </Box>
 
             <Typography sx={{ fontSize: '0.98rem' }}>{sp.bio}</Typography>

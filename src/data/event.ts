@@ -63,7 +63,7 @@ export const trackA: AgendaItem[] = [
   { time: '09:45', title: 'Talk 1', detail: 'Main hall' },
   { time: '10:15', title: 'Talk 2', detail: 'Main hall' },
   { time: '10:45', title: 'Coffee break' },
-  { time: '11:00', title: 'Securing AI Agents in Arabic, French, and Darija', detail: 'Afaf Kelai, main hall' },
+  { time: '11:00', title: 'Securing AI Agents', detail: 'Afaf Kelai, main hall' },
   { time: '11:30', title: 'Talk 4', detail: 'Main hall' },
   { time: '12:00', title: 'Panel or lightning talks', detail: 'Main hall' },
   { time: '12:45', title: 'Lunch and networking', detail: 'All participants', allHands: true },
@@ -109,7 +109,7 @@ export const sessions: Session[] = [
     time: '11:00',
     room: 'Main hall',
     speaker: 'Afaf Kelai',
-    title: 'Securing AI Agents in Arabic, French, and Darija',
+    title: 'Securing AI Agents',
     description:
       'Results from an open-source suite of prompt injection attacks in English, French, and Arabic, and a practical checklist to secure agents built with Gemini and Google Cloud.',
     confirmed: true,
@@ -134,6 +134,7 @@ export type Speaker = {
   bio: string;
   expertise: string[];
   session: string;
+  sessionDescription?: string;
   sessionConfirmed: boolean;
   link?: { label: string; url: string };
   accent: Accent;
@@ -169,9 +170,12 @@ export const speakers: Speaker[] = [
     name: 'Afaf Kelai',
     role: 'AI Engineer',
     location: 'Algeria',
-    bio: 'AI engineer and GDG Setif organizer, with expertise in agentic AI, large language models and computer vision.',
-    expertise: ['Agentic AI', 'LLMs', 'Computer Vision'],
-    session: 'Securing AI Agents in Arabic, French, and Darija',
+    company: 'Second Brain',
+    bio: 'AI engineer at Second Brain, where she builds multi-agent LLM systems that read, extract and verify information from real-world documents. Instructor and mentor to 1,000+ students in software development and data science, from their first line of code to portfolio-ready projects, and author of course content for IT schools. Active in Google Developer Groups since 2015, she leads workshops and talks on cloud and machine learning and has helped run hackathons in Algeria and abroad. Organizer at GDG Setif.',
+    expertise: ['Multi-agent LLM systems', 'Agentic AI', 'AI security', 'Cloud', 'Machine learning'],
+    session: 'Securing AI Agents',
+    sessionDescription:
+      'Prompt injection attacks in Arabic, French, Darija and English, what they reveal about agents in production, and a practical checklist to secure agents built with Gemini and Google Cloud.',
     sessionConfirmed: true,
     accent: 'red',
   },
