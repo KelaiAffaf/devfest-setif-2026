@@ -73,14 +73,33 @@ export default function RegistrationForm() {
 
     setStatus({ kind: 'sending' });
     try {
-      const res = await fetch(registrationForm.endpoint, {
+      // The sheet (Apps Script) does not send CORS headers, so the request is opaque.
+      // A resolved fetch means the row reached Google.
+      const toSheet = registrationForm.sheetEndpoint
+        ? fetch(registrationForm.sheetEndpoint, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+          }).then(() => true)
+        : Promise.resolve(false);
+      const toEmail = fetch(registrationForm.endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
-      });
-      const json = (await res.json().catch(() => ({}))) as { success?: string | boolean; message?: string };
-      if (!res.ok || String(json.success) !== 'true') {
-        throw new Error(json.message || 'The registration service did not accept the form.');
+      })
+        .then(async (res) => {
+          const json = (await res.json().catch(() => ({}))) as { success?: string | boolean; message?: string };
+          if (!res.ok || String(json.success) !== 'true') {
+            throw new Error(json.message || 'The registration service did not accept the form.');
+          }
+          return true;
+        });
+      const [sheet, email] = await Promise.allSettled([toSheet, toEmail]);
+      const saved = (sheet.status === 'fulfilled' && sheet.value) || (email.status === 'fulfilled' && email.value);
+      if (!saved) {
+        const reason = email.status === 'rejected' ? email.reason : null;
+        throw reason instanceof Error ? reason : new Error('The registration service did not accept the form.');
       }
       setStatus({ kind: 'done', name: data.fullName.split(' ')[0] || data.fullName });
       form.reset();

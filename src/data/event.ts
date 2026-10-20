@@ -36,6 +36,9 @@ export const links = {
 // alias FormSubmit gives you, so the email address no longer appears in the page source.
 export const registrationForm = {
   endpoint: 'https://formsubmit.co/ajax/afafkelly@gmail.com',
+  // Google Apps Script web app that adds each registration to the "DevFest Setif 2026 Registrations" sheet.
+  // Source: tools/registrations-apps-script.gs. Leave empty to send email only.
+  sheetEndpoint: '',
   subject: 'New DevFest Setif 2026 registration',
 };
 
