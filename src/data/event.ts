@@ -38,7 +38,7 @@ export const registrationForm = {
   endpoint: 'https://formsubmit.co/ajax/afafkelly@gmail.com',
   // Google Apps Script web app that adds each registration to the "DevFest Setif 2026 Registrations" sheet.
   // Source: tools/registrations-apps-script.gs. Leave empty to send email only.
-  sheetEndpoint: '',
+  sheetEndpoint: 'https://script.google.com/macros/s/AKfycbwCwQUjrTIKMJkQTNDJn3YaA2-Wd6pANxj0XpBc1VETjlXe97h3_Dv0mHx3E2CVF2O3/exec',
   subject: 'New DevFest Setif 2026 registration',
 };
 
